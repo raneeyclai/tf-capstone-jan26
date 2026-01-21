@@ -4,11 +4,6 @@ pipeline {
     pollSCM('H/3 * * * *')
   }
   stages {
-    stage ('Checkout'){
-      steps {
-        checkout SCM
-      }
-    }
     stage ('Check Pre-req'){
       steps {
       sh 'ls -l'
