@@ -11,6 +11,8 @@ module "Vms_app1" {
   num_of_vm = 1
   env = "dev"
   web_sg = [module.Web_SG01.web_sg_id]
+  user_data = file("scripts/nginx.sh")
+
 }
  
 output "vm_private_ips01" {
@@ -26,3 +28,4 @@ module "Web_SG01" {
 data "aws_vpc" "default" {
   default = true
 }
+
