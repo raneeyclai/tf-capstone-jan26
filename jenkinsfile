@@ -4,11 +4,6 @@ pipeline {
     pollSCM('H/3 * * * *')
   }
   stages {
-    stage ('Cleanup workspace'){
-      steps {
-        deleteDir()
-      }
-    }
     stage ('Checkout'){
       steps {
         checkout SCM
@@ -52,6 +47,11 @@ pipeline {
         steps {
             sh 'terraform apply -auto-approve'
         }
+    }
+    stage ('Cleanup workspace'){
+      steps {
+        deleteDir()
+      }
     }
   }
 }
